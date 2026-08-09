@@ -64,16 +64,35 @@ footer{background:var(--navy);color:#a8b3c1;padding:28px 16px;font-size:10.5px;l
 footer strong{color:white} .hidden{display:none!important}
 @media(max-width:650px){.hero-grid,.dashboard{grid-template-columns:1fr} h1{font-size:42px} .subject-title span{font-size:20px}}
 @media print{.toolbar{display:none}body{background:white}.lesson{break-inside:avoid}}
+
+.study-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:11px}
+.study-action{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #dfe2e5;background:#f8f8f6;border-radius:10px;padding:9px 7px;font-size:10px;font-weight:800;color:#334155;cursor:pointer}
+.study-action input{display:none}
+.study-action.active{background:#07111f;color:#fff;border-color:#07111f}
+.study-action .dot{width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor;display:inline-block}
+.qbtn{display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:8px;border-radius:10px;border:1px solid #cfd5dc;padding:10px 11px;font-size:10.5px;font-weight:900;color:#07111f;background:#fff}
+.review-box{margin-top:10px;border-top:1px dashed #d9dde1;padding-top:10px}
+.review-title{font-size:9px;font-weight:900;letter-spacing:.11em;color:#7b5a2d;margin-bottom:7px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.review-btn{border:1px solid #dfe2e5;background:#fbfbfa;border-radius:9px;padding:8px 5px;text-align:center;font-size:9.5px;font-weight:800;color:#4d5969;cursor:pointer}
+.review-btn.done{background:#203b31;color:#fff;border-color:#203b31}
+.review-btn small{display:block;font-size:8px;font-weight:600;opacity:.75;margin-top:2px}
+.panel.review-panel{grid-column:1/-1}
+.review-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.review-stat{border:1px solid #e1e4e7;border-radius:12px;padding:10px;background:#fafaf8}
+.review-stat b{display:block;font-size:18px}.review-stat span{font-size:9px;color:#6b7481;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+@media(max-width:560px){.study-actions,.review-grid,.review-summary{grid-template-columns:1fr 1fr 1fr}}
+
 </style>
 </head>
 <body>
 <header class="hero">
  <div class="shell">
-  <div class="brandline"><div class="brand">KAELeX</div><div class="badge">GUIA PREMIUM • CBMMA 2026</div></div>
+  <div class="brandline"><div class="brand">KAELeX</div><div class="badge">GUIA PREMIUM V2 • CBMMA 2026</div></div>
   <h1>ROTA P1</h1>
   <p class="subtitle">Conhecimentos Gerais para o concurso do CBMMA. Conteúdo do edital organizado em sequência de estudo, aulas gratuitas e acompanhamento individual de progresso.</p>
   <div class="hero-grid">
-   <div class="hero-card"><small>Estratégia</small><div class="big">28 etapas</div><small>Estudo em blocos objetivos, com domínio esperado ao final de cada aula.</small></div>
+   <div class="hero-card"><small>Estratégia</small><div class="big">28 etapas + ciclo de revisão</div><small>Estudo em blocos objetivos, com domínio esperado ao final de cada aula.</small></div>
    <div class="hero-card"><small>Meta</small><div class="big">100%</div><small>Concluir, revisar e resolver questões.</small></div>
   </div>
  </div>
@@ -104,7 +123,18 @@ footer strong{color:white} .hidden{display:none!important}
   </div>
  </section>
 
- <div class="tip"><strong>Regra da Rota P1.</strong> Aula → questões → correção do erro → revisão. Marcar uma aula como concluída significa que o conteúdo foi estudado e testado, não apenas assistido.</div>
+
+ <section class="panel review-panel" style="margin-bottom:20px">
+   <h2>REVISÕES PROGRAMADAS</h2>
+   <div class="review-summary">
+     <div class="review-stat"><b id="due24">0</b><span>24 horas</span></div>
+     <div class="review-stat"><b id="due7">0</b><span>7 dias</span></div>
+     <div class="review-stat"><b id="due30">0</b><span>30 dias</span></div>
+   </div>
+   <p class="strategy">As revisões são liberadas a partir da data em que você marca “Estudei”. O controle fica salvo neste navegador.</p>
+ </section>
+
+ <div class="tip"><strong>Regra da Rota P1.</strong> Aula → questões → correção do erro → revisão. O ciclo completo exige três evidências: conteúdo estudado, questões resolvidas e revisão realizada.</div>
 
  
     <section id="portugues" class="subject" data-subject-section="portugues">
@@ -142,6 +172,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Professora Pamba</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="1">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="1"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="1"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="1"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Compreensão+e+interpretação+de+textos+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="1">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="1">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="1">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa tipos e gêneros textuais tipologia textual gêneros finalidade comunicativa características estruturais">
@@ -164,6 +210,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aula voltada a concursos/Cebraspe</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="2">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="2"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="2"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="2"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Tipos+e+gêneros+textuais+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="2">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="2">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="2">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa ortografia, classes e verbos ortografia oficial classes de palavras tempos verbais modos verbais">
@@ -186,6 +248,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aula com resolução de itens</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="3">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="3"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="3"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="3"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Ortografia,+classes+e+verbos+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="3">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="3">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="3">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa coesão, referenciação e conectores referenciação substituição repetição conectores sequenciação textual">
@@ -208,6 +286,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aula focada em itens da banca</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="4">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="4"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="4"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="4"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Coesão,+referenciação+e+conectores+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="4">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="4">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="4">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa coordenação e subordinação relações de coordenação relações de subordinação termos da oração orações">
@@ -230,6 +324,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aula com análise sintática aplicada</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="5">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="5"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="5"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="5"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Coordenação+e+subordinação+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="5">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="5">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="5">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa pontuação vírgula pontuação no período composto alteração de sentido correção gramatical">
@@ -252,6 +362,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aula com itens certo/errado</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="6">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="6"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="6"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="6"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Pontuação+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="6">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="6">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="6">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa concordância, regência e crase concordância verbal concordância nominal regência verbal regência nominal crase">
@@ -274,6 +400,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione revisão integrada</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="7">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="7"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="7"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="7"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Concordância,+regência+e+crase+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="7">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="7">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="7">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa colocação pronominal e significação próclise ênclise mesóclise significação de palavras substituições lexicais">
@@ -296,6 +438,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aula aplicada à banca</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="8">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="8"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="8"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="8"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Colocação+pronominal+e+significação+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="8">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="8">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="8">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="portugues" data-search="língua portuguesa reescrita e redação oficial reescrita reorganização de orações níveis de formalidade correspondência oficial manual de redação da presidência da república">
@@ -318,6 +476,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aulas de reescrita e MRPR</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="9">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="9"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="9"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="9"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Reescrita+e+redação+oficial+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="9">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="9">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="9">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         </div>
     </section>
@@ -364,6 +538,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula complementar • Prof. Ramsés Magno</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="10">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="10"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="10"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="10"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+França+Equinocial+e+fundação+de+São+Luís+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="10">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="10">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="10">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="historia" data-search="história do maranhão guaxenduba, capitães-mores e invasão holandesa batalha de guaxenduba capitães-mores invasão holandesa expulsão dos holandeses">
@@ -393,6 +583,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula complementar • Prof. Ramsés Magno</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="11">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="11"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="11"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="11"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Guaxenduba,+capitães-mores+e+invasão+holandesa+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="11">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="11">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="11">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="historia" data-search="história do maranhão estado do maranhão e grão-pará + bequimão estado do maranhão e grão-pará companhia de comércio revolta de bequimão causas e objetivos">
@@ -422,6 +628,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula complementar • Prof. Ramsés Magno</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="12">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="12"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="12"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="12"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Estado+do+Maranhão+e+Grão-Pará+++Bequimão+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="12">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="12">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="12">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="historia" data-search="história do maranhão independência e batalha do jenipapo adesão do maranhão à independência causas da resistência à adesão batalha do jenipapo">
@@ -451,6 +673,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula complementar • Prof. Ramsés Magno</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="13">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="13"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="13"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="13"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Independência+e+Batalha+do+Jenipapo+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="13">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="13">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="13">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="historia" data-search="história do maranhão balaiada contexto caracterização causas atores desfecho">
@@ -480,6 +718,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula complementar • Prof. Ramsés Magno</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="14">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="14"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="14"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="14"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Balaiada+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="14">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="14">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="14">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="historia" data-search="história do maranhão república, 1930 e maranhão contemporâneo adesão à república revolução de 1930 fatos políticos, econômicos e sociais da segunda metade do século xx">
@@ -509,6 +763,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula complementar • Prof. Ramsés Magno</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="15">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="15"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="15"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="15"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+República,+1930+e+Maranhão+contemporâneo+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="15">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="15">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="15">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         </div>
     </section>
@@ -548,6 +818,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula específica de Geografia do Maranhão</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="16">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="16"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="16"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="16"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Localização,+limites+e+relevo+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="16">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="16">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="16">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="geografia" data-search="geografia do maranhão hidrografia rios maranhenses bacia do parnaíba gurupi tocantins-araguaia bacias genuinamente maranhenses">
@@ -570,6 +856,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Aula específica de Geografia do Maranhão</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="17">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="17"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="17"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="17"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Hidrografia+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="17">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="17">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="17">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="geografia" data-search="geografia do maranhão clima, vegetação e áreas protegidas clima pluviosidade temperatura floresta cerrado cocais apas parques nacionais">
@@ -592,6 +894,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Geografia do Maranhão para concursos</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="18">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="18"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="18"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="18"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Clima,+vegetação+e+áreas+protegidas+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="18">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="18">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="18">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="geografia" data-search="geografia do maranhão população e povoamento população densidade demográfica povoamento movimentos populacionais">
@@ -614,6 +932,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Geografia do Maranhão para concursos</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="19">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="19"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="19"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="19"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+População+e+povoamento+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="19">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="19">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="19">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="geografia" data-search="geografia do maranhão economia maranhense agricultura pecuária extrativismo vegetal extrativismo animal extrativismo mineral parque industrial comércio">
@@ -636,6 +970,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Geografia do Maranhão para concursos</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="20">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="20"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="20"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="20"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Economia+maranhense+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="20">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="20">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="20">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="geografia" data-search="geografia do maranhão transportes, portos e cultura telecomunicações transportes malha viária portos aeroportos cultura maranhense">
@@ -658,6 +1008,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Geografia do Maranhão para concursos</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="21">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="21"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="21"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="21"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Transportes,+portos+e+cultura+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="21">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="21">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="21">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         </div>
     </section>
@@ -697,6 +1063,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Curso Enem Gratuito</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="22">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="22"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="22"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="22"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Estratégias+de+leitura+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="22">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="22">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="22">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="ingles" data-search="língua inglesa questões cebraspe de inglês interpretação vocabulário contextual gramática aplicada julgamento de assertivas">
@@ -719,6 +1101,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Renato Baggio — Aprova Concursos</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="23">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="23"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="23"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="23"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Questões+Cebraspe+de+Inglês+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="23">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="23">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="23">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         </div>
     </section>
@@ -758,6 +1156,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Priorize sequência do Prof. Tiago Gomes ou aula equivalente</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="24">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="24"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="24"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="24"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Proposições+e+conectivos+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="24">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="24">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="24">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="logica" data-search="raciocínio lógico tabela-verdade valores lógicos construção de tabelas proposições compostas">
@@ -780,6 +1194,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Priorize sequência do Prof. Tiago Gomes ou aula equivalente</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="25">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="25"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="25"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="25"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Tabela-verdade+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="25">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="25">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="25">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="logica" data-search="raciocínio lógico equivalências, negações e leis de morgan equivalências negação leis de morgan transformação de proposições">
@@ -802,6 +1232,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Priorize sequência do Prof. Tiago Gomes ou aula equivalente</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="26">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="26"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="26"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="26"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Equivalências,+negações+e+Leis+de+Morgan+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="26">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="26">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="26">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="logica" data-search="raciocínio lógico lógica de argumentação analogias inferências deduções conclusões validade de argumentos">
@@ -824,6 +1270,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Selecione aula com questões da banca</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="27">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="27"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="27"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="27"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Lógica+de+argumentação+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="27">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="27">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="27">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         
         <article class="lesson" data-subject="logica" data-search="raciocínio lógico diagramas e proposições categóricas diagramas lógicos proposições categóricas quantificadores silogismos">
@@ -846,6 +1308,22 @@ footer strong{color:white} .hidden{display:none!important}
               <small>Prof. Tiago Gomes</small>
             </span>
           </a>
+        
+          <div class="study-actions" data-lesson="28">
+            <label class="study-action" data-kind="studied"><input type="checkbox" data-progress="studied" data-lesson="28"><span class="dot"></span>Estudei</label>
+            <label class="study-action" data-kind="questions"><input type="checkbox" data-progress="questions" data-lesson="28"><span class="dot"></span>Fiz questões</label>
+            <label class="study-action" data-kind="reviewed"><input type="checkbox" data-progress="reviewed" data-lesson="28"><span class="dot"></span>Revisei</label>
+          </div>
+          <a class="qbtn" href="https://www.google.com/search?q=site%3Aqconcursos.com+OR+site%3Atecconcursos.com.br+Diagramas+e+proposições+categóricas+Cebraspe+questões" target="_blank" rel="noopener">QUESTÕES DESTE TEMA ↗</a>
+          <div class="review-box">
+            <div class="review-title">CICLO DE REVISÃO</div>
+            <div class="review-grid">
+              <button class="review-btn" type="button" data-review="24" data-lesson="28">24h<small>1ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="7" data-lesson="28">7 dias<small>2ª revisão</small></button>
+              <button class="review-btn" type="button" data-review="30" data-lesson="28">30 dias<small>3ª revisão</small></button>
+            </div>
+          </div>
+
         </article>
         </div>
     </section>
@@ -865,54 +1343,160 @@ footer strong{color:white} .hidden{display:none!important}
 
 <script id="guia-data" type="application/json">{"meta": {"titulo": "GUIA DE BOLSO — P1 CBMMA 2026", "subtitulo": "Conhecimentos Gerais • Cebraspe", "prova": "P1 — 30 questões", "disciplinas": 5, "observacao": "Trilha organizada por progressão pedagógica. Marque as aulas concluídas no próprio navegador.", "atualizado_em": "08/08/2026", "marca": "KAELeX", "versao": "Premium", "mensagem": "Rota P1 — constância, domínio e revisão."}, "disciplinas": [{"id": "portugues", "nome": "Língua Portuguesa", "icone": "PT", "prioridade": "ALTA", "orientacao": "Priorize interpretação, coesão, sintaxe e reescrita. O Cebraspe costuma integrar gramática à compreensão do texto.", "aulas": [{"n": 1, "titulo": "Compreensão e interpretação de textos", "conteudo": ["Compreensão e interpretação de gêneros variados", "Inferência", "Sentido contextual", "Relações entre ideias"], "video": "BANCA CESPE/CEBRASPE — Interpretação e compreensão de textos — Professora Pamba", "professor": "Professora Pamba", "url": "https://www.youtube.com/watch?v=OEjT6VgyhGc", "objetivo": "Distinguir informação explícita, inferência e conclusão compatível com o texto."}, {"n": 2, "titulo": "Tipos e gêneros textuais", "conteudo": ["Tipologia textual", "Gêneros", "Finalidade comunicativa", "Características estruturais"], "video": "Busca dirigida — Tipos e gêneros textuais para Cebraspe", "professor": "Selecione aula voltada a concursos/Cebraspe", "url": "https://www.youtube.com/results?search_query=tipos+generos+textuais+CEBRASPE+concursos", "objetivo": "Reconhecer gênero, tipologia predominante e função comunicativa sem decorar rótulos isoladamente."}, {"n": 3, "titulo": "Ortografia, classes e verbos", "conteudo": ["Ortografia oficial", "Classes de palavras", "Tempos verbais", "Modos verbais"], "video": "Busca dirigida — Classes de palavras e verbos Cebraspe", "professor": "Selecione aula com resolução de itens", "url": "https://www.youtube.com/results?search_query=classes+de+palavras+tempos+modos+verbais+CEBRASPE", "objetivo": "Analisar o valor morfossintático das palavras no contexto do período."}, {"n": 4, "titulo": "Coesão, referenciação e conectores", "conteudo": ["Referenciação", "Substituição", "Repetição", "Conectores", "Sequenciação textual"], "video": "Busca dirigida — Coesão textual Cebraspe", "professor": "Selecione aula focada em itens da banca", "url": "https://www.youtube.com/results?search_query=coesao+referenciacao+conectores+CEBRASPE+portugues", "objetivo": "Identificar a que termo uma expressão retoma e como conectores alteram relações de sentido."}, {"n": 5, "titulo": "Coordenação e subordinação", "conteudo": ["Relações de coordenação", "Relações de subordinação", "Termos da oração", "Orações"], "video": "Busca dirigida — Coordenação e subordinação Cebraspe", "professor": "Selecione aula com análise sintática aplicada", "url": "https://www.youtube.com/results?search_query=coordenacao+subordinacao+CEBRASPE+portugues", "objetivo": "Reconhecer relações sintáticas e semânticas entre orações."}, {"n": 6, "titulo": "Pontuação", "conteudo": ["Vírgula", "Pontuação no período composto", "Alteração de sentido", "Correção gramatical"], "video": "Busca dirigida — Pontuação Cebraspe", "professor": "Selecione aula com itens certo/errado", "url": "https://www.youtube.com/results?search_query=pontuacao+virgula+CEBRASPE+questoes", "objetivo": "Julgar se a retirada, inserção ou deslocamento da pontuação mantém correção e sentido."}, {"n": 7, "titulo": "Concordância, regência e crase", "conteudo": ["Concordância verbal", "Concordância nominal", "Regência verbal", "Regência nominal", "Crase"], "video": "Busca dirigida — Concordância, regência e crase Cebraspe", "professor": "Selecione revisão integrada", "url": "https://www.youtube.com/results?search_query=concordancia+regencia+crase+CEBRASPE+concursos", "objetivo": "Resolver alterações estruturais propostas pela banca sem depender de leitura intuitiva."}, {"n": 8, "titulo": "Colocação pronominal e significação", "conteudo": ["Próclise", "Ênclise", "Mesóclise", "Significação de palavras", "Substituições lexicais"], "video": "Busca dirigida — Colocação pronominal e semântica Cebraspe", "professor": "Selecione aula aplicada à banca", "url": "https://www.youtube.com/results?search_query=colocacao+pronominal+semantica+CEBRASPE", "objetivo": "Avaliar correção e manutenção de sentido após substituições."}, {"n": 9, "titulo": "Reescrita e redação oficial", "conteudo": ["Reescrita", "Reorganização de orações", "Níveis de formalidade", "Correspondência oficial", "Manual de Redação da Presidência da República"], "video": "Busca dirigida — Reescrita + Redação Oficial Cebraspe", "professor": "Selecione aulas de reescrita e MRPR", "url": "https://www.youtube.com/results?search_query=reescrita+redacao+oficial+manual+presidencia+CEBRASPE", "objetivo": "Verificar equivalência semântica, correção gramatical e adequação da linguagem oficial."}]}, {"id": "historia", "nome": "História do Maranhão", "icone": "HM", "prioridade": "ALTA", "orientacao": "Estude cronologicamente e construa relações de causa, atores, objetivos, conflito e consequência.", "aulas": [{"n": 10, "titulo": "França Equinocial e fundação de São Luís", "conteudo": ["Daniel de La Touche", "França Equinocial", "Fundação de São Luís", "Contexto colonial"], "video": "Busca dirigida — França Equinocial e fundação de São Luís", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Franca+Equinocial+Daniel+La+Touche+fundacao+Sao+Luis+concurso", "objetivo": "Relacionar o projeto francês, seus atores e a formação de São Luís."}, {"n": 11, "titulo": "Guaxenduba, capitães-mores e invasão holandesa", "conteudo": ["Batalha de Guaxenduba", "Capitães-mores", "Invasão holandesa", "Expulsão dos holandeses"], "video": "Busca dirigida — Guaxenduba e invasão holandesa no Maranhão", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Batalha+Guaxenduba+invasao+holandesa+Maranhao+concurso", "objetivo": "Ordenar os conflitos coloniais e identificar seus efeitos políticos."}, {"n": 12, "titulo": "Estado do Maranhão e Grão-Pará + Bequimão", "conteudo": ["Estado do Maranhão e Grão-Pará", "Companhia de Comércio", "Revolta de Bequimão", "Causas e objetivos"], "video": "Busca dirigida — Revolta de Bequimão", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Revolta+de+Bequimao+Companhia+Comercio+Maranhao+concurso", "objetivo": "Explicar por que ocorreu a revolta e quais interesses estavam em conflito."}, {"n": 13, "titulo": "Independência e Batalha do Jenipapo", "conteudo": ["Adesão do Maranhão à Independência", "Causas da resistência à adesão", "Batalha do Jenipapo"], "video": "Busca dirigida — Maranhão, Independência e Jenipapo", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Maranhao+Independencia+Batalha+Jenipapo+concurso", "objetivo": "Entender a especificidade da adesão maranhense à Independência."}, {"n": 14, "titulo": "Balaiada", "conteudo": ["Contexto", "Caracterização", "Causas", "Atores", "Desfecho"], "video": "Busca dirigida — Balaiada para concursos", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Balaiada+Maranhao+concurso+aula", "objetivo": "Diferenciar causas sociais, políticas e econômicas e reconhecer os principais grupos envolvidos."}, {"n": 15, "titulo": "República, 1930 e Maranhão contemporâneo", "conteudo": ["Adesão à República", "Revolução de 1930", "Fatos políticos, econômicos e sociais da segunda metade do século XX"], "video": "Busca dirigida — Maranhão República e século XX", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=historia+Maranhao+Republica+Revolucao+1930+seculo+XX+concurso", "objetivo": "Construir uma linha do tempo da transição republicana ao Maranhão contemporâneo."}]}, {"id": "geografia", "nome": "Geografia do Maranhão", "icone": "GM", "prioridade": "MÉDIA/ALTA", "orientacao": "Separe geografia física, humana e econômica. Use mapas para hidrografia, relevo, limites e infraestrutura.", "aulas": [{"n": 16, "titulo": "Localização, limites e relevo", "conteudo": ["Localização", "Superfície", "Limites", "Fronteiras", "Pontos extremos", "Planaltos", "Planícies", "Baixadas", "Golfão Maranhense"], "video": "Geografia do Maranhão — Golfão Maranhense, Hidrografia e Relevo", "professor": "Aula específica de Geografia do Maranhão", "url": "https://www.youtube.com/watch?v=ZWGGQ1f3TKo", "objetivo": "Ler o território maranhense espacialmente e reconhecer suas principais unidades de relevo."}, {"n": 17, "titulo": "Hidrografia", "conteudo": ["Rios maranhenses", "Bacia do Parnaíba", "Gurupi", "Tocantins-Araguaia", "Bacias genuinamente maranhenses"], "video": "Geografia do Maranhão — Hidrografia", "professor": "Aula específica de Geografia do Maranhão", "url": "https://www.youtube.com/watch?v=M_flsZa8168", "objetivo": "Associar rios e bacias à sua localização e importância territorial."}, {"n": 18, "titulo": "Clima, vegetação e áreas protegidas", "conteudo": ["Clima", "Pluviosidade", "Temperatura", "Floresta", "Cerrado", "Cocais", "APAs", "Parques nacionais"], "video": "Busca dirigida — Clima e vegetação do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=geografia+Maranhao+clima+vegetacao+cocais+cerrado+APA+parques", "objetivo": "Relacionar clima, cobertura vegetal e distribuição espacial dos ambientes maranhenses."}, {"n": 19, "titulo": "População e povoamento", "conteudo": ["População", "Densidade demográfica", "Povoamento", "Movimentos populacionais"], "video": "Busca dirigida — População do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=geografia+Maranhao+populacao+densidade+povoamento+concurso", "objetivo": "Interpretar distribuição e dinâmica populacional no estado."}, {"n": 20, "titulo": "Economia maranhense", "conteudo": ["Agricultura", "Pecuária", "Extrativismo vegetal", "Extrativismo animal", "Extrativismo mineral", "Parque industrial", "Comércio"], "video": "Busca dirigida — Economia do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=economia+Maranhao+agricultura+pecuaria+extrativismo+industria+concurso", "objetivo": "Reconhecer as principais atividades econômicas e sua distribuição territorial."}, {"n": 21, "titulo": "Transportes, portos e cultura", "conteudo": ["Telecomunicações", "Transportes", "Malha viária", "Portos", "Aeroportos", "Cultura maranhense"], "video": "Busca dirigida — Infraestrutura e transportes do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=geografia+Maranhao+portos+transportes+malha+viaria+aeroportos+concurso", "objetivo": "Relacionar infraestrutura logística à organização econômica e territorial do Maranhão."}]}, {"id": "ingles", "nome": "Língua Inglesa", "icone": "EN", "prioridade": "OBJETIVA", "orientacao": "Não transforme a preparação em curso de inglês geral. O foco é leitura, inferência e gramática que altera a compreensão.", "aulas": [{"n": 22, "titulo": "Estratégias de leitura", "conteudo": ["Skimming", "Scanning", "Cognatos", "Palavras-chave", "Ideia principal", "Localização de informação"], "video": "Como usar Skimming e Scanning — Interpretação de textos em Inglês", "professor": "Curso Enem Gratuito", "url": "https://www.youtube.com/watch?v=YvmH7tTcDY4", "objetivo": "Ler estrategicamente sem tentar traduzir cada palavra."}, {"n": 23, "titulo": "Questões Cebraspe de Inglês", "conteudo": ["Interpretação", "Vocabulário contextual", "Gramática aplicada", "Julgamento de assertivas"], "video": "Questões Cebraspe: Inglês para Concursos", "professor": "Renato Baggio — Aprova Concursos", "url": "https://www.youtube.com/watch?v=64Z8RFeCQuw", "objetivo": "Entender como a banca combina interpretação e gramática em itens."}]}, {"id": "logica", "nome": "Raciocínio Lógico", "icone": "RL", "prioridade": "ALTA", "orientacao": "É um edital compacto. Domine completamente proposições, tabela-verdade, equivalências/negações, argumentação e diagramas.", "aulas": [{"n": 24, "titulo": "Proposições e conectivos", "conteudo": ["Estruturas lógicas", "Proposições simples", "Proposições compostas", "Conectivos"], "video": "Busca dirigida — Proposições e conectivos para concursos", "professor": "Priorize sequência do Prof. Tiago Gomes ou aula equivalente", "url": "https://www.youtube.com/results?search_query=Tiago+Gomes+proposicoes+conectivos+raciocinio+logico", "objetivo": "Formalizar frases e identificar corretamente os conectivos."}, {"n": 25, "titulo": "Tabela-verdade", "conteudo": ["Valores lógicos", "Construção de tabelas", "Proposições compostas"], "video": "Busca dirigida — Tabela Verdade completa para concursos", "professor": "Priorize sequência do Prof. Tiago Gomes ou aula equivalente", "url": "https://www.youtube.com/results?search_query=Tiago+Gomes+Tabela+Verdade+aula+completa+concursos", "objetivo": "Construir e interpretar tabelas sem depender de memorização fragmentada."}, {"n": 26, "titulo": "Equivalências, negações e Leis de Morgan", "conteudo": ["Equivalências", "Negação", "Leis de Morgan", "Transformação de proposições"], "video": "Busca dirigida — Equivalências e negações", "professor": "Priorize sequência do Prof. Tiago Gomes ou aula equivalente", "url": "https://www.youtube.com/results?search_query=Tiago+Gomes+equivalencias+negacoes+Leis+Morgan", "objetivo": "Reconhecer proposições logicamente equivalentes e negar corretamente estruturas compostas."}, {"n": 27, "titulo": "Lógica de argumentação", "conteudo": ["Analogias", "Inferências", "Deduções", "Conclusões", "Validade de argumentos"], "video": "Busca dirigida — Lógica de argumentação Cebraspe", "professor": "Selecione aula com questões da banca", "url": "https://www.youtube.com/results?search_query=logica+argumentacao+inferencias+deducoes+CEBRASPE", "objetivo": "Determinar se uma conclusão decorre validamente das premissas."}, {"n": 28, "titulo": "Diagramas e proposições categóricas", "conteudo": ["Diagramas lógicos", "Proposições categóricas", "Quantificadores", "Silogismos"], "video": "Proposições Categóricas — Equivalências, Negações, Diagramas Lógicos e Argumentos", "professor": "Prof. Tiago Gomes", "url": "https://www.youtube.com/watch?v=mQbHUCx2xBA", "objetivo": "Representar relações entre conjuntos e verificar conclusões de argumentos categóricos."}]}], "fontes": [{"nome": "Cebraspe — portal institucional", "url": "https://www.cebraspe.org.br/"}, {"nome": "YouTube — aulas indicadas", "url": "https://www.youtube.com/"}]}</script>
 <script>
-const boxes=[...document.querySelectorAll('input[type=checkbox][data-id]')];
+const legacyBoxes=[...document.querySelectorAll('input[type=checkbox][data-id]')];
+const progressBoxes=[...document.querySelectorAll('input[data-progress]')];
+const reviewBtns=[...document.querySelectorAll('.review-btn')];
 const lessons=[...document.querySelectorAll('.lesson')];
-const subjectIds=["portugues", "historia", "geografia", "ingles", "logica"];
+const subjectIds=["portugues","historia","geografia","ingles","logica"];
 
-function update(){
- let done=0;
- boxes.forEach(b=>{
-   const checked=b.checked;
-   b.closest('.lesson').classList.toggle('done',checked);
-   localStorage.setItem('kaelex-'+b.dataset.id,checked?'1':'0');
-   if(checked) done++;
- });
- const pct=Math.round(done/boxes.length*100);
- document.getElementById('overallText').textContent=pct+'%';
- document.getElementById('overallBar').style.width=pct+'%';
- document.getElementById('overallCount').textContent=done+' de '+boxes.length+' aulas concluídas.';
- subjectIds.forEach(id=>{
-   const sb=boxes.filter(b=>b.dataset.subject===id);
-   const sd=sb.filter(b=>b.checked).length;
-   const sp=sb.length?Math.round(sd/sb.length*100):0;
-   document.getElementById('pct-'+id).textContent=sp+'%';
-   document.getElementById('count-'+id).textContent=sd+'/'+sb.length;
-   document.getElementById('bar-'+id).style.width=sp+'%';
- });
- const next=boxes.find(b=>!b.checked);
- const title=document.getElementById('todayTitle');
- if(next){
-   const card=next.closest('.lesson');
-   const aula=card.querySelector('.eyebrow').textContent;
-   const name=card.querySelector('h3').textContent;
-   title.innerHTML=aula+' — '+name+'<small>Próxima etapa da sua trilha.</small>';
- } else {
-   title.innerHTML='Trilha concluída.<small>Inicie revisão e blocos de questões Cebraspe.</small>';
- }
+function keyProgress(lesson, kind){ return `kaelex-v2-${lesson}-${kind}`; }
+function keyStudyDate(lesson){ return `kaelex-v2-${lesson}-studydate`; }
+function keyReview(lesson, span){ return `kaelex-v2-${lesson}-review-${span}`; }
+
+function dateOnly(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+function addDays(date, days){ const d=new Date(date); d.setDate(d.getDate()+days); return d; }
+function daysMap(span){ return span==="24"?1:(span==="7"?7:30); }
+
+function syncLessonState(){
+  progressBoxes.forEach(b=>{
+    const lesson=b.dataset.lesson, kind=b.dataset.progress;
+    b.checked=localStorage.getItem(keyProgress(lesson,kind))==="1";
+    b.closest('.study-action').classList.toggle('active',b.checked);
+  });
+  reviewBtns.forEach(btn=>{
+    const lesson=btn.dataset.lesson, span=btn.dataset.review;
+    const done=localStorage.getItem(keyReview(lesson,span))==="1";
+    btn.classList.toggle('done',done);
+  });
 }
-boxes.forEach(b=>{
- b.checked=localStorage.getItem('kaelex-'+b.dataset.id)==='1';
- b.addEventListener('change',update);
-});
-update();
 
-document.getElementById('search').addEventListener('input',e=>{
- const q=e.target.value.toLowerCase().trim();
- lessons.forEach(el=>el.classList.toggle('hidden', q && !el.dataset.search.includes(q)));
- document.querySelectorAll('[data-subject-section]').forEach(sec=>{
-   const visible=[...sec.querySelectorAll('.lesson')].some(x=>!x.classList.contains('hidden'));
-   sec.classList.toggle('hidden',q && !visible);
- });
+function setStudyDateIfNeeded(lesson, checked){
+  if(checked && !localStorage.getItem(keyStudyDate(lesson))){
+    localStorage.setItem(keyStudyDate(lesson), new Date().toISOString());
+  }
+}
+
+function updateOverall(){
+  let fully=0;
+  lessons.forEach(card=>{
+    const n=card.querySelector('[data-progress]')?.dataset.lesson;
+    if(!n) return;
+    const studied=localStorage.getItem(keyProgress(n,'studied'))==="1";
+    const questions=localStorage.getItem(keyProgress(n,'questions'))==="1";
+    const reviewed=localStorage.getItem(keyProgress(n,'reviewed'))==="1";
+    const done=studied && questions && reviewed;
+    card.classList.toggle('done',done);
+    if(done) fully++;
+  });
+  const pct=Math.round(fully/lessons.length*100);
+  const t=document.getElementById('overallText');
+  const b=document.getElementById('overallBar');
+  const c=document.getElementById('overallCount');
+  if(t)t.textContent=pct+'%';
+  if(b)b.style.width=pct+'%';
+  if(c)c.textContent=fully+' de '+lessons.length+' aulas com ciclo completo.';
+}
+
+function updateSubjects(){
+  subjectIds.forEach(id=>{
+    const cards=[...document.querySelectorAll(`.lesson[data-subject="${id}"]`)];
+    let done=0;
+    cards.forEach(card=>{
+      const n=card.querySelector('[data-progress]')?.dataset.lesson;
+      if(!n)return;
+      if(['studied','questions','reviewed'].every(k=>localStorage.getItem(keyProgress(n,k))==="1")) done++;
+    });
+    const p=cards.length?Math.round(done/cards.length*100):0;
+    const pct=document.getElementById('pct-'+id), cnt=document.getElementById('count-'+id), bar=document.getElementById('bar-'+id);
+    if(pct)pct.textContent=p+'%';
+    if(cnt)cnt.textContent=done+'/'+cards.length;
+    if(bar)bar.style.width=p+'%';
+  });
+}
+
+function updateToday(){
+  const title=document.getElementById('todayTitle');
+  if(!title)return;
+  let next=null;
+  for(const card of lessons){
+    const n=card.querySelector('[data-progress]')?.dataset.lesson;
+    if(n && localStorage.getItem(keyProgress(n,'studied'))!=="1"){ next=card; break; }
+  }
+  if(next){
+    const aula=next.querySelector('.eyebrow')?.textContent || '';
+    const name=next.querySelector('h3')?.textContent || '';
+    title.innerHTML=aula+' — '+name+'<small>Próxima aula ainda não estudada.</small>';
+  } else {
+    title.innerHTML='Conteúdo estudado.<small>Agora concentre-se em questões e revisões pendentes.</small>';
+  }
+}
+
+function updateReviewDue(){
+  const now=dateOnly(new Date());
+  let due={"24":0,"7":0,"30":0};
+  reviewBtns.forEach(btn=>{
+    const lesson=btn.dataset.lesson, span=btn.dataset.review;
+    const dt=localStorage.getItem(keyStudyDate(lesson));
+    const done=localStorage.getItem(keyReview(lesson,span))==="1";
+    if(!dt || done) return;
+    const target=dateOnly(addDays(new Date(dt),daysMap(span)));
+    if(target<=now) due[span]++;
+  });
+  document.getElementById('due24').textContent=due["24"];
+  document.getElementById('due7').textContent=due["7"];
+  document.getElementById('due30').textContent=due["30"];
+}
+
+function updateAll(){
+  syncLessonState();
+  updateOverall();
+  updateSubjects();
+  updateToday();
+  updateReviewDue();
+}
+
+progressBoxes.forEach(b=>{
+  b.addEventListener('change',()=>{
+    const lesson=b.dataset.lesson, kind=b.dataset.progress;
+    localStorage.setItem(keyProgress(lesson,kind),b.checked?'1':'0');
+    if(kind==='studied') setStudyDateIfNeeded(lesson,b.checked);
+    updateAll();
+  });
+});
+
+reviewBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const lesson=btn.dataset.lesson, span=btn.dataset.review;
+    const k=keyReview(lesson,span);
+    const next=localStorage.getItem(k)==='1'?'0':'1';
+    localStorage.setItem(k,next);
+    if(next==='1'){
+      localStorage.setItem(keyProgress(lesson,'reviewed'),'1');
+    }
+    updateAll();
+  });
+});
+
+// Preserve legacy completed state if a student used the previous version.
+legacyBoxes.forEach(b=>{
+  const n=(b.dataset.id||'').replace('aula-','');
+  if(!n)return;
+  if(localStorage.getItem('kaelex-'+b.dataset.id)==='1' && !localStorage.getItem(keyProgress(n,'studied'))){
+    localStorage.setItem(keyProgress(n,'studied'),'1');
+    if(!localStorage.getItem(keyStudyDate(n))) localStorage.setItem(keyStudyDate(n),new Date().toISOString());
+  }
+  b.closest('.check')?.remove();
+});
+
+updateAll();
+
+document.getElementById('search')?.addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase().trim();
+  lessons.forEach(el=>el.classList.toggle('hidden', q && !el.dataset.search.includes(q)));
+  document.querySelectorAll('[data-subject-section]').forEach(sec=>{
+    const visible=[...sec.querySelectorAll('.lesson')].some(x=>!x.classList.contains('hidden'));
+    sec.classList.toggle('hidden',q && !visible);
+  });
 });
 </script>
 </body>
