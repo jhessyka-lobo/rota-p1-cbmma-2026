@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Guia premium de estudos P1 CBMMA 2026 — Cebraspe">
+<title>KAELeX • Rota P1 CBMMA 2026</title>
+<style>
+:root {
+ --bg:#f3f1eb; --navy:#07111f; --navy2:#0d1b2e; --card:#ffffff; --ink:#111a28;
+ --muted:#6b7481; --line:#dfe2e5; --gold:#d39a46; --soft:#f8f6f1; --ok:#203b31;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.shell{max-width:920px;margin:auto}
+.hero{background:linear-gradient(180deg,#07111f,#0a1728);color:white;padding:28px 18px 30px;position:relative;overflow:hidden}
+.hero:after{content:"K";position:absolute;right:-12px;top:-34px;font-size:210px;font-weight:900;color:rgba(255,255,255,.025)}
+.brandline{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{font-weight:900;letter-spacing:.18em;font-size:12px;color:#efb568}
+.badge{font-size:10px;border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:7px 10px;color:#d5deea}
+h1{font-size:clamp(34px,9vw,58px);line-height:.92;letter-spacing:-.05em;margin:24px 0 10px}
+.subtitle{margin:0;color:#bdc8d4;font-size:14px;max-width:620px;line-height:1.5}
+.hero-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:12px;margin-top:24px}
+.hero-card{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:15px;background:rgba(255,255,255,.03)}
+.hero-card .big{font-size:28px;font-weight:900} .hero-card small{color:#a9b4c2}
+.toolbar{position:sticky;top:0;z-index:30;background:rgba(243,241,235,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:10px}
+.tools{max-width:920px;margin:auto;display:flex;gap:8px;overflow:auto}
+.tools input{min-width:170px;flex:1;border:1px solid var(--line);background:white;border-radius:12px;padding:11px 13px;outline:none}
+.nav{text-decoration:none;color:var(--ink);font-size:11px;font-weight:900;border:1px solid var(--line);background:white;border-radius:12px;padding:11px 12px;white-space:nowrap}
+main{padding:18px 14px 70px}
+.dashboard{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-bottom:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.panel h2{font-size:12px;letter-spacing:.12em;margin:0 0 10px;color:#7b5a2d}
+.progress-number{font-size:34px;font-weight:950;letter-spacing:-.04em}
+.bar{height:9px;border-radius:99px;background:#ecebe7;overflow:hidden;margin-top:10px}
+.bar div{height:100%;background:var(--gold);width:0;transition:.25s}
+.today{font-size:15px;font-weight:800;line-height:1.35}
+.today small{display:block;color:var(--muted);font-weight:500;margin-top:6px}
+.strategy{font-size:12px;line-height:1.55;color:#4e5967;margin:8px 0 0}
+.subject{margin:28px 0 42px;scroll-margin-top:80px}
+.subject-header{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center}
+.code{width:44px;height:44px;background:var(--navy);color:white;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:12px}
+.subject-title span{display:block;font-size:23px;font-weight:900;letter-spacing:-.03em}
+.subject-title small{color:#956d35;font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:900}
+.subject-progress{text-align:right} .subject-progress b{display:block;font-size:16px} .subject-progress span{font-size:10px;color:var(--muted)}
+.mini-bar{height:5px;background:#e6e5e1;border-radius:99px;overflow:hidden;margin:10px 0 12px} .mini-bar div{height:100%;width:0;background:var(--navy)}
+.orientation{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}
+.lessons{display:grid;gap:11px}
+.lesson{background:white;border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:0 2px 8px rgba(4,16,30,.03)}
+.lesson.done{opacity:.58} .lesson.done h3{text-decoration:line-through}
+.lesson-head{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.check input{display:none} .check span{display:block;width:23px;height:23px;border:2px solid #b8bec5;border-radius:7px;position:relative}
+.check input:checked+span{background:var(--navy);border-color:var(--navy)} .check input:checked+span:after{content:"✓";position:absolute;color:white;left:4px;top:0px;font-weight:900}
+.eyebrow{font-size:9px;color:var(--gold);letter-spacing:.12em;font-weight:900}
+h3{margin:2px 0 0;font-size:15px;line-height:1.25}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0}
+.tag{font-size:9.5px;background:#f5f6f7;border:1px solid #e4e6e8;border-radius:99px;padding:5px 7px;color:#425064}
+.goal{font-size:11.5px;line-height:1.5;color:#4d5969;border-left:2px solid var(--gold);padding-left:9px;margin-bottom:11px}
+.video{display:flex;align-items:center;gap:10px;text-decoration:none;color:white;background:var(--navy);border-radius:11px;padding:11px}
+.video.ramses{margin-top:7px;background:#132944;border:1px solid rgba(211,154,70,.45)} .video.ramses .play{color:#efb568} .video strong{display:block;font-size:11px;line-height:1.3} .video small{display:block;color:#9eabba;font-size:9px;margin-top:3px} .play{color:#f2af52}
+.tip{background:#fff7e9;border:1px solid #ecd6b4;border-radius:15px;padding:14px;font-size:12px;line-height:1.55;color:#59492f}
+footer{background:var(--navy);color:#a8b3c1;padding:28px 16px;font-size:10.5px;line-height:1.6}
+footer strong{color:white} .hidden{display:none!important}
+@media(max-width:650px){.hero-grid,.dashboard{grid-template-columns:1fr} h1{font-size:42px} .subject-title span{font-size:20px}}
+@media print{.toolbar{display:none}body{background:white}.lesson{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="shell">
+  <div class="brandline"><div class="brand">KAELeX</div><div class="badge">GUIA PREMIUM • CBMMA 2026</div></div>
+  <h1>ROTA P1</h1>
+  <p class="subtitle">Conhecimentos Gerais para o concurso do CBMMA. Conteúdo do edital organizado em sequência de estudo, aulas gratuitas e acompanhamento individual de progresso.</p>
+  <div class="hero-grid">
+   <div class="hero-card"><small>Estratégia</small><div class="big">28 etapas</div><small>Estudo em blocos objetivos, com domínio esperado ao final de cada aula.</small></div>
+   <div class="hero-card"><small>Meta</small><div class="big">100%</div><small>Concluir, revisar e resolver questões.</small></div>
+  </div>
+ </div>
+</header>
+
+<div class="toolbar">
+ <div class="tools">
+  <input id="search" type="search" placeholder="Buscar conteúdo…">
+  <a class="nav" href="#portugues">PORTUGUÊS</a>
+  <a class="nav" href="#historia">HISTÓRIA</a>
+  <a class="nav" href="#geografia">GEOGRAFIA</a>
+  <a class="nav" href="#ingles">INGLÊS</a>
+  <a class="nav" href="#logica">LÓGICA</a>
+ </div>
+</div>
+
+<main class="shell">
+ <section class="dashboard">
+  <div class="panel">
+   <h2>PROGRESSO GERAL</h2>
+   <div class="progress-number" id="overallText">0%</div>
+   <div class="bar"><div id="overallBar"></div></div>
+   <p class="strategy" id="overallCount">0 de 28 aulas concluídas.</p>
+  </div>
+  <div class="panel">
+   <h2>ESTUDE HOJE</h2>
+   <div class="today" id="todayTitle">Comece pela Aula 01.<small>O sistema sempre mostra a próxima aula não concluída.</small></div>
+  </div>
+ </section>
+
+ <div class="tip"><strong>Regra da Rota P1.</strong> Aula → questões → correção do erro → revisão. Marcar uma aula como concluída significa que o conteúdo foi estudado e testado, não apenas assistido.</div>
+
+ 
+    <section id="portugues" class="subject" data-subject-section="portugues">
+      <div class="subject-header">
+        <div class="code">PT</div>
+        <div class="subject-title">
+          <span>Língua Portuguesa</span>
+          <small>Prioridade ALTA</small>
+        </div>
+        <div class="subject-progress">
+          <b id="pct-portugues">0%</b>
+          <span id="count-portugues">0/9</span>
+        </div>
+      </div>
+      <div class="mini-bar"><div id="bar-portugues"></div></div>
+      <p class="orientation">Priorize interpretação, coesão, sintaxe e reescrita. O Cebraspe costuma integrar gramática à compreensão do texto.</p>
+      <div class="lessons">
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa compreensão e interpretação de textos compreensão e interpretação de gêneros variados inferência sentido contextual relações entre ideias">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-1" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 01</div>
+              <h3>Compreensão e interpretação de textos</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Compreensão e interpretação de gêneros variados</span><span class="tag">Inferência</span><span class="tag">Sentido contextual</span><span class="tag">Relações entre ideias</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Distinguir informação explícita, inferência e conclusão compatível com o texto.</div>
+          <a class="video" href="https://www.youtube.com/watch?v=OEjT6VgyhGc" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>BANCA CESPE/CEBRASPE — Interpretação e compreensão de textos — Professora Pamba</strong>
+              <small>Professora Pamba</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa tipos e gêneros textuais tipologia textual gêneros finalidade comunicativa características estruturais">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-2" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 02</div>
+              <h3>Tipos e gêneros textuais</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Tipologia textual</span><span class="tag">Gêneros</span><span class="tag">Finalidade comunicativa</span><span class="tag">Características estruturais</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Reconhecer gênero, tipologia predominante e função comunicativa sem decorar rótulos isoladamente.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=tipos+generos+textuais+CEBRASPE+concursos" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Tipos e gêneros textuais para Cebraspe</strong>
+              <small>Selecione aula voltada a concursos/Cebraspe</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa ortografia, classes e verbos ortografia oficial classes de palavras tempos verbais modos verbais">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-3" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 03</div>
+              <h3>Ortografia, classes e verbos</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Ortografia oficial</span><span class="tag">Classes de palavras</span><span class="tag">Tempos verbais</span><span class="tag">Modos verbais</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Analisar o valor morfossintático das palavras no contexto do período.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=classes+de+palavras+tempos+modos+verbais+CEBRASPE" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Classes de palavras e verbos Cebraspe</strong>
+              <small>Selecione aula com resolução de itens</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa coesão, referenciação e conectores referenciação substituição repetição conectores sequenciação textual">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-4" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 04</div>
+              <h3>Coesão, referenciação e conectores</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Referenciação</span><span class="tag">Substituição</span><span class="tag">Repetição</span><span class="tag">Conectores</span><span class="tag">Sequenciação textual</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Identificar a que termo uma expressão retoma e como conectores alteram relações de sentido.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=coesao+referenciacao+conectores+CEBRASPE+portugues" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Coesão textual Cebraspe</strong>
+              <small>Selecione aula focada em itens da banca</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa coordenação e subordinação relações de coordenação relações de subordinação termos da oração orações">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-5" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 05</div>
+              <h3>Coordenação e subordinação</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Relações de coordenação</span><span class="tag">Relações de subordinação</span><span class="tag">Termos da oração</span><span class="tag">Orações</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Reconhecer relações sintáticas e semânticas entre orações.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=coordenacao+subordinacao+CEBRASPE+portugues" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Coordenação e subordinação Cebraspe</strong>
+              <small>Selecione aula com análise sintática aplicada</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa pontuação vírgula pontuação no período composto alteração de sentido correção gramatical">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-6" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 06</div>
+              <h3>Pontuação</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Vírgula</span><span class="tag">Pontuação no período composto</span><span class="tag">Alteração de sentido</span><span class="tag">Correção gramatical</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Julgar se a retirada, inserção ou deslocamento da pontuação mantém correção e sentido.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=pontuacao+virgula+CEBRASPE+questoes" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Pontuação Cebraspe</strong>
+              <small>Selecione aula com itens certo/errado</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa concordância, regência e crase concordância verbal concordância nominal regência verbal regência nominal crase">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-7" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 07</div>
+              <h3>Concordância, regência e crase</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Concordância verbal</span><span class="tag">Concordância nominal</span><span class="tag">Regência verbal</span><span class="tag">Regência nominal</span><span class="tag">Crase</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Resolver alterações estruturais propostas pela banca sem depender de leitura intuitiva.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=concordancia+regencia+crase+CEBRASPE+concursos" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Concordância, regência e crase Cebraspe</strong>
+              <small>Selecione revisão integrada</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa colocação pronominal e significação próclise ênclise mesóclise significação de palavras substituições lexicais">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-8" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 08</div>
+              <h3>Colocação pronominal e significação</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Próclise</span><span class="tag">Ênclise</span><span class="tag">Mesóclise</span><span class="tag">Significação de palavras</span><span class="tag">Substituições lexicais</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Avaliar correção e manutenção de sentido após substituições.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=colocacao+pronominal+semantica+CEBRASPE" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Colocação pronominal e semântica Cebraspe</strong>
+              <small>Selecione aula aplicada à banca</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="portugues" data-search="língua portuguesa reescrita e redação oficial reescrita reorganização de orações níveis de formalidade correspondência oficial manual de redação da presidência da república">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-9" data-subject="portugues">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 09</div>
+              <h3>Reescrita e redação oficial</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Reescrita</span><span class="tag">Reorganização de orações</span><span class="tag">Níveis de formalidade</span><span class="tag">Correspondência oficial</span><span class="tag">Manual de Redação da Presidência da República</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Verificar equivalência semântica, correção gramatical e adequação da linguagem oficial.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=reescrita+redacao+oficial+manual+presidencia+CEBRASPE" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Reescrita + Redação Oficial Cebraspe</strong>
+              <small>Selecione aulas de reescrita e MRPR</small>
+            </span>
+          </a>
+        </article>
+        </div>
+    </section>
+    
+    <section id="historia" class="subject" data-subject-section="historia">
+      <div class="subject-header">
+        <div class="code">HM</div>
+        <div class="subject-title">
+          <span>História do Maranhão</span>
+          <small>Prioridade ALTA</small>
+        </div>
+        <div class="subject-progress">
+          <b id="pct-historia">0%</b>
+          <span id="count-historia">0/6</span>
+        </div>
+      </div>
+      <div class="mini-bar"><div id="bar-historia"></div></div>
+      <p class="orientation">Estude cronologicamente e construa relações de causa, atores, objetivos, conflito e consequência.</p>
+      <div class="lessons">
+        <article class="lesson" data-subject="historia" data-search="história do maranhão frança equinocial e fundação de são luís daniel de la touche frança equinocial fundação de são luís contexto colonial">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-10" data-subject="historia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 10</div>
+              <h3>França Equinocial e fundação de São Luís</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Daniel de La Touche</span><span class="tag">França Equinocial</span><span class="tag">Fundação de São Luís</span><span class="tag">Contexto colonial</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Relacionar o projeto francês, seus atores e a formação de São Luís.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Franca+Equinocial+Daniel+La+Touche+fundacao+Sao+Luis+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — França Equinocial e fundação de São Luís</strong>
+              <small>História do Maranhão para concursos</small>
+            </span>
+          </a>
+          <a class="video ramses" href="https://www.youtube.com/watch?v=xU3u_A7HP8k" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Ramsés Magno — França Equinocial e Fundação de São Luís</strong>
+              <small>Aula complementar • Prof. Ramsés Magno</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="historia" data-search="história do maranhão guaxenduba, capitães-mores e invasão holandesa batalha de guaxenduba capitães-mores invasão holandesa expulsão dos holandeses">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-11" data-subject="historia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 11</div>
+              <h3>Guaxenduba, capitães-mores e invasão holandesa</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Batalha de Guaxenduba</span><span class="tag">Capitães-mores</span><span class="tag">Invasão holandesa</span><span class="tag">Expulsão dos holandeses</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Ordenar os conflitos coloniais e identificar seus efeitos políticos.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Batalha+Guaxenduba+invasao+holandesa+Maranhao+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Guaxenduba e invasão holandesa no Maranhão</strong>
+              <small>História do Maranhão para concursos</small>
+            </span>
+          </a>
+          <a class="video ramses" href="https://www.youtube.com/results?search_query=Prof+Ramses+Magno+invasao+holandesa+Maranhao" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Ramsés Magno — Invasão Holandesa no Maranhão</strong>
+              <small>Aula complementar • Prof. Ramsés Magno</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="historia" data-search="história do maranhão estado do maranhão e grão-pará + bequimão estado do maranhão e grão-pará companhia de comércio revolta de bequimão causas e objetivos">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-12" data-subject="historia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 12</div>
+              <h3>Estado do Maranhão e Grão-Pará + Bequimão</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Estado do Maranhão e Grão-Pará</span><span class="tag">Companhia de Comércio</span><span class="tag">Revolta de Bequimão</span><span class="tag">Causas e objetivos</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Explicar por que ocorreu a revolta e quais interesses estavam em conflito.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Revolta+de+Bequimao+Companhia+Comercio+Maranhao+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Revolta de Bequimão</strong>
+              <small>História do Maranhão para concursos</small>
+            </span>
+          </a>
+          <a class="video ramses" href="https://www.youtube.com/results?search_query=Prof+Ramses+Magno+Bequimao+Maranhao" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Ramsés Magno — Bequimão / Maranhão Colonial</strong>
+              <small>Aula complementar • Prof. Ramsés Magno</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="historia" data-search="história do maranhão independência e batalha do jenipapo adesão do maranhão à independência causas da resistência à adesão batalha do jenipapo">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-13" data-subject="historia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 13</div>
+              <h3>Independência e Batalha do Jenipapo</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Adesão do Maranhão à Independência</span><span class="tag">Causas da resistência à adesão</span><span class="tag">Batalha do Jenipapo</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Entender a especificidade da adesão maranhense à Independência.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Maranhao+Independencia+Batalha+Jenipapo+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Maranhão, Independência e Jenipapo</strong>
+              <small>História do Maranhão para concursos</small>
+            </span>
+          </a>
+          <a class="video ramses" href="https://www.youtube.com/results?search_query=Prof+Ramses+Magno+Independencia+do+Maranhao" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Ramsés Magno — Independência do Maranhão</strong>
+              <small>Aula complementar • Prof. Ramsés Magno</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="historia" data-search="história do maranhão balaiada contexto caracterização causas atores desfecho">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-14" data-subject="historia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 14</div>
+              <h3>Balaiada</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Contexto</span><span class="tag">Caracterização</span><span class="tag">Causas</span><span class="tag">Atores</span><span class="tag">Desfecho</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Diferenciar causas sociais, políticas e econômicas e reconhecer os principais grupos envolvidos.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Balaiada+Maranhao+concurso+aula" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Balaiada para concursos</strong>
+              <small>História do Maranhão para concursos</small>
+            </span>
+          </a>
+          <a class="video ramses" href="https://www.youtube.com/watch?v=y5Hi3bekBhQ" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Ramsés Magno — Balaiada</strong>
+              <small>Aula complementar • Prof. Ramsés Magno</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="historia" data-search="história do maranhão república, 1930 e maranhão contemporâneo adesão à república revolução de 1930 fatos políticos, econômicos e sociais da segunda metade do século xx">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-15" data-subject="historia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 15</div>
+              <h3>República, 1930 e Maranhão contemporâneo</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Adesão à República</span><span class="tag">Revolução de 1930</span><span class="tag">Fatos políticos, econômicos e sociais da segunda metade do século XX</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Construir uma linha do tempo da transição republicana ao Maranhão contemporâneo.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=historia+Maranhao+Republica+Revolucao+1930+seculo+XX+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Maranhão República e século XX</strong>
+              <small>História do Maranhão para concursos</small>
+            </span>
+          </a>
+          <a class="video ramses" href="https://www.youtube.com/results?search_query=Prof+Ramses+Magno+Maranhao+Republica+seculo+XX" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Ramsés Magno — Maranhão República e Século XX</strong>
+              <small>Aula complementar • Prof. Ramsés Magno</small>
+            </span>
+          </a>
+        </article>
+        </div>
+    </section>
+    
+    <section id="geografia" class="subject" data-subject-section="geografia">
+      <div class="subject-header">
+        <div class="code">GM</div>
+        <div class="subject-title">
+          <span>Geografia do Maranhão</span>
+          <small>Prioridade MÉDIA/ALTA</small>
+        </div>
+        <div class="subject-progress">
+          <b id="pct-geografia">0%</b>
+          <span id="count-geografia">0/6</span>
+        </div>
+      </div>
+      <div class="mini-bar"><div id="bar-geografia"></div></div>
+      <p class="orientation">Separe geografia física, humana e econômica. Use mapas para hidrografia, relevo, limites e infraestrutura.</p>
+      <div class="lessons">
+        <article class="lesson" data-subject="geografia" data-search="geografia do maranhão localização, limites e relevo localização superfície limites fronteiras pontos extremos planaltos planícies baixadas golfão maranhense">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-16" data-subject="geografia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 16</div>
+              <h3>Localização, limites e relevo</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Localização</span><span class="tag">Superfície</span><span class="tag">Limites</span><span class="tag">Fronteiras</span><span class="tag">Pontos extremos</span><span class="tag">Planaltos</span><span class="tag">Planícies</span><span class="tag">Baixadas</span><span class="tag">Golfão Maranhense</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Ler o território maranhense espacialmente e reconhecer suas principais unidades de relevo.</div>
+          <a class="video" href="https://www.youtube.com/watch?v=ZWGGQ1f3TKo" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Geografia do Maranhão — Golfão Maranhense, Hidrografia e Relevo</strong>
+              <small>Aula específica de Geografia do Maranhão</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="geografia" data-search="geografia do maranhão hidrografia rios maranhenses bacia do parnaíba gurupi tocantins-araguaia bacias genuinamente maranhenses">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-17" data-subject="geografia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 17</div>
+              <h3>Hidrografia</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Rios maranhenses</span><span class="tag">Bacia do Parnaíba</span><span class="tag">Gurupi</span><span class="tag">Tocantins-Araguaia</span><span class="tag">Bacias genuinamente maranhenses</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Associar rios e bacias à sua localização e importância territorial.</div>
+          <a class="video" href="https://www.youtube.com/watch?v=M_flsZa8168" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Geografia do Maranhão — Hidrografia</strong>
+              <small>Aula específica de Geografia do Maranhão</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="geografia" data-search="geografia do maranhão clima, vegetação e áreas protegidas clima pluviosidade temperatura floresta cerrado cocais apas parques nacionais">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-18" data-subject="geografia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 18</div>
+              <h3>Clima, vegetação e áreas protegidas</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Clima</span><span class="tag">Pluviosidade</span><span class="tag">Temperatura</span><span class="tag">Floresta</span><span class="tag">Cerrado</span><span class="tag">Cocais</span><span class="tag">APAs</span><span class="tag">Parques nacionais</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Relacionar clima, cobertura vegetal e distribuição espacial dos ambientes maranhenses.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=geografia+Maranhao+clima+vegetacao+cocais+cerrado+APA+parques" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Clima e vegetação do Maranhão</strong>
+              <small>Geografia do Maranhão para concursos</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="geografia" data-search="geografia do maranhão população e povoamento população densidade demográfica povoamento movimentos populacionais">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-19" data-subject="geografia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 19</div>
+              <h3>População e povoamento</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">População</span><span class="tag">Densidade demográfica</span><span class="tag">Povoamento</span><span class="tag">Movimentos populacionais</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Interpretar distribuição e dinâmica populacional no estado.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=geografia+Maranhao+populacao+densidade+povoamento+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — População do Maranhão</strong>
+              <small>Geografia do Maranhão para concursos</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="geografia" data-search="geografia do maranhão economia maranhense agricultura pecuária extrativismo vegetal extrativismo animal extrativismo mineral parque industrial comércio">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-20" data-subject="geografia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 20</div>
+              <h3>Economia maranhense</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Agricultura</span><span class="tag">Pecuária</span><span class="tag">Extrativismo vegetal</span><span class="tag">Extrativismo animal</span><span class="tag">Extrativismo mineral</span><span class="tag">Parque industrial</span><span class="tag">Comércio</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Reconhecer as principais atividades econômicas e sua distribuição territorial.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=economia+Maranhao+agricultura+pecuaria+extrativismo+industria+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Economia do Maranhão</strong>
+              <small>Geografia do Maranhão para concursos</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="geografia" data-search="geografia do maranhão transportes, portos e cultura telecomunicações transportes malha viária portos aeroportos cultura maranhense">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-21" data-subject="geografia">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 21</div>
+              <h3>Transportes, portos e cultura</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Telecomunicações</span><span class="tag">Transportes</span><span class="tag">Malha viária</span><span class="tag">Portos</span><span class="tag">Aeroportos</span><span class="tag">Cultura maranhense</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Relacionar infraestrutura logística à organização econômica e territorial do Maranhão.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=geografia+Maranhao+portos+transportes+malha+viaria+aeroportos+concurso" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Infraestrutura e transportes do Maranhão</strong>
+              <small>Geografia do Maranhão para concursos</small>
+            </span>
+          </a>
+        </article>
+        </div>
+    </section>
+    
+    <section id="ingles" class="subject" data-subject-section="ingles">
+      <div class="subject-header">
+        <div class="code">EN</div>
+        <div class="subject-title">
+          <span>Língua Inglesa</span>
+          <small>Prioridade OBJETIVA</small>
+        </div>
+        <div class="subject-progress">
+          <b id="pct-ingles">0%</b>
+          <span id="count-ingles">0/2</span>
+        </div>
+      </div>
+      <div class="mini-bar"><div id="bar-ingles"></div></div>
+      <p class="orientation">Não transforme a preparação em curso de inglês geral. O foco é leitura, inferência e gramática que altera a compreensão.</p>
+      <div class="lessons">
+        <article class="lesson" data-subject="ingles" data-search="língua inglesa estratégias de leitura skimming scanning cognatos palavras-chave ideia principal localização de informação">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-22" data-subject="ingles">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 22</div>
+              <h3>Estratégias de leitura</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Skimming</span><span class="tag">Scanning</span><span class="tag">Cognatos</span><span class="tag">Palavras-chave</span><span class="tag">Ideia principal</span><span class="tag">Localização de informação</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Ler estrategicamente sem tentar traduzir cada palavra.</div>
+          <a class="video" href="https://www.youtube.com/watch?v=YvmH7tTcDY4" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Como usar Skimming e Scanning — Interpretação de textos em Inglês</strong>
+              <small>Curso Enem Gratuito</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="ingles" data-search="língua inglesa questões cebraspe de inglês interpretação vocabulário contextual gramática aplicada julgamento de assertivas">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-23" data-subject="ingles">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 23</div>
+              <h3>Questões Cebraspe de Inglês</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Interpretação</span><span class="tag">Vocabulário contextual</span><span class="tag">Gramática aplicada</span><span class="tag">Julgamento de assertivas</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Entender como a banca combina interpretação e gramática em itens.</div>
+          <a class="video" href="https://www.youtube.com/watch?v=64Z8RFeCQuw" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Questões Cebraspe: Inglês para Concursos</strong>
+              <small>Renato Baggio — Aprova Concursos</small>
+            </span>
+          </a>
+        </article>
+        </div>
+    </section>
+    
+    <section id="logica" class="subject" data-subject-section="logica">
+      <div class="subject-header">
+        <div class="code">RL</div>
+        <div class="subject-title">
+          <span>Raciocínio Lógico</span>
+          <small>Prioridade ALTA</small>
+        </div>
+        <div class="subject-progress">
+          <b id="pct-logica">0%</b>
+          <span id="count-logica">0/5</span>
+        </div>
+      </div>
+      <div class="mini-bar"><div id="bar-logica"></div></div>
+      <p class="orientation">É um edital compacto. Domine completamente proposições, tabela-verdade, equivalências/negações, argumentação e diagramas.</p>
+      <div class="lessons">
+        <article class="lesson" data-subject="logica" data-search="raciocínio lógico proposições e conectivos estruturas lógicas proposições simples proposições compostas conectivos">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-24" data-subject="logica">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 24</div>
+              <h3>Proposições e conectivos</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Estruturas lógicas</span><span class="tag">Proposições simples</span><span class="tag">Proposições compostas</span><span class="tag">Conectivos</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Formalizar frases e identificar corretamente os conectivos.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Tiago+Gomes+proposicoes+conectivos+raciocinio+logico" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Proposições e conectivos para concursos</strong>
+              <small>Priorize sequência do Prof. Tiago Gomes ou aula equivalente</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="logica" data-search="raciocínio lógico tabela-verdade valores lógicos construção de tabelas proposições compostas">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-25" data-subject="logica">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 25</div>
+              <h3>Tabela-verdade</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Valores lógicos</span><span class="tag">Construção de tabelas</span><span class="tag">Proposições compostas</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Construir e interpretar tabelas sem depender de memorização fragmentada.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Tiago+Gomes+Tabela+Verdade+aula+completa+concursos" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Tabela Verdade completa para concursos</strong>
+              <small>Priorize sequência do Prof. Tiago Gomes ou aula equivalente</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="logica" data-search="raciocínio lógico equivalências, negações e leis de morgan equivalências negação leis de morgan transformação de proposições">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-26" data-subject="logica">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 26</div>
+              <h3>Equivalências, negações e Leis de Morgan</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Equivalências</span><span class="tag">Negação</span><span class="tag">Leis de Morgan</span><span class="tag">Transformação de proposições</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Reconhecer proposições logicamente equivalentes e negar corretamente estruturas compostas.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=Tiago+Gomes+equivalencias+negacoes+Leis+Morgan" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Equivalências e negações</strong>
+              <small>Priorize sequência do Prof. Tiago Gomes ou aula equivalente</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="logica" data-search="raciocínio lógico lógica de argumentação analogias inferências deduções conclusões validade de argumentos">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-27" data-subject="logica">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 27</div>
+              <h3>Lógica de argumentação</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Analogias</span><span class="tag">Inferências</span><span class="tag">Deduções</span><span class="tag">Conclusões</span><span class="tag">Validade de argumentos</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Determinar se uma conclusão decorre validamente das premissas.</div>
+          <a class="video" href="https://www.youtube.com/results?search_query=logica+argumentacao+inferencias+deducoes+CEBRASPE" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Busca dirigida — Lógica de argumentação Cebraspe</strong>
+              <small>Selecione aula com questões da banca</small>
+            </span>
+          </a>
+        </article>
+        
+        <article class="lesson" data-subject="logica" data-search="raciocínio lógico diagramas e proposições categóricas diagramas lógicos proposições categóricas quantificadores silogismos">
+          <div class="lesson-head">
+            <label class="check">
+              <input type="checkbox" data-id="aula-28" data-subject="logica">
+              <span></span>
+            </label>
+            <div class="lesson-meta">
+              <div class="eyebrow">AULA 28</div>
+              <h3>Diagramas e proposições categóricas</h3>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Diagramas lógicos</span><span class="tag">Proposições categóricas</span><span class="tag">Quantificadores</span><span class="tag">Silogismos</span></div>
+          <div class="goal"><b>Domínio esperado:</b> Representar relações entre conjuntos e verificar conclusões de argumentos categóricos.</div>
+          <a class="video" href="https://www.youtube.com/watch?v=mQbHUCx2xBA" target="_blank" rel="noopener">
+            <span class="play">▶</span>
+            <span>
+              <strong>Proposições Categóricas — Equivalências, Negações, Diagramas Lógicos e Argumentos</strong>
+              <small>Prof. Tiago Gomes</small>
+            </span>
+          </a>
+        </article>
+        </div>
+    </section>
+    
+
+ <div class="tip"><strong>Aulas de História com Ramsés Magno.</strong> Cada bloco de História do Maranhão agora traz uma referência complementar do professor. Quando localizei o vídeo específico, o botão abre a aula diretamente; nos demais temas, abre uma busca dirigida no canal/YouTube para evitar atribuir ao professor um vídeo não confirmado.</div>
+
+ <div class="tip" style="margin-top:10px"><strong>Uso inteligente.</strong> Nos links identificados como “Busca dirigida”, selecione uma aula recente, completa e voltada para concursos. Esses links foram mantidos assim quando um único vídeo não podia ser validado como cobertura suficiente de todo o item do edital.</div>
+</main>
+
+<footer>
+ <div class="shell">
+  <strong>KAELeX • ROTA P1 CBMMA 2026</strong><br>
+  Guia de apoio à organização dos estudos. O edital oficial e suas retificações prevalecem. O progresso fica salvo no navegador do próprio aluno.
+ </div>
+</footer>
+
+<script id="guia-data" type="application/json">{"meta": {"titulo": "GUIA DE BOLSO — P1 CBMMA 2026", "subtitulo": "Conhecimentos Gerais • Cebraspe", "prova": "P1 — 30 questões", "disciplinas": 5, "observacao": "Trilha organizada por progressão pedagógica. Marque as aulas concluídas no próprio navegador.", "atualizado_em": "08/08/2026", "marca": "KAELeX", "versao": "Premium", "mensagem": "Rota P1 — constância, domínio e revisão."}, "disciplinas": [{"id": "portugues", "nome": "Língua Portuguesa", "icone": "PT", "prioridade": "ALTA", "orientacao": "Priorize interpretação, coesão, sintaxe e reescrita. O Cebraspe costuma integrar gramática à compreensão do texto.", "aulas": [{"n": 1, "titulo": "Compreensão e interpretação de textos", "conteudo": ["Compreensão e interpretação de gêneros variados", "Inferência", "Sentido contextual", "Relações entre ideias"], "video": "BANCA CESPE/CEBRASPE — Interpretação e compreensão de textos — Professora Pamba", "professor": "Professora Pamba", "url": "https://www.youtube.com/watch?v=OEjT6VgyhGc", "objetivo": "Distinguir informação explícita, inferência e conclusão compatível com o texto."}, {"n": 2, "titulo": "Tipos e gêneros textuais", "conteudo": ["Tipologia textual", "Gêneros", "Finalidade comunicativa", "Características estruturais"], "video": "Busca dirigida — Tipos e gêneros textuais para Cebraspe", "professor": "Selecione aula voltada a concursos/Cebraspe", "url": "https://www.youtube.com/results?search_query=tipos+generos+textuais+CEBRASPE+concursos", "objetivo": "Reconhecer gênero, tipologia predominante e função comunicativa sem decorar rótulos isoladamente."}, {"n": 3, "titulo": "Ortografia, classes e verbos", "conteudo": ["Ortografia oficial", "Classes de palavras", "Tempos verbais", "Modos verbais"], "video": "Busca dirigida — Classes de palavras e verbos Cebraspe", "professor": "Selecione aula com resolução de itens", "url": "https://www.youtube.com/results?search_query=classes+de+palavras+tempos+modos+verbais+CEBRASPE", "objetivo": "Analisar o valor morfossintático das palavras no contexto do período."}, {"n": 4, "titulo": "Coesão, referenciação e conectores", "conteudo": ["Referenciação", "Substituição", "Repetição", "Conectores", "Sequenciação textual"], "video": "Busca dirigida — Coesão textual Cebraspe", "professor": "Selecione aula focada em itens da banca", "url": "https://www.youtube.com/results?search_query=coesao+referenciacao+conectores+CEBRASPE+portugues", "objetivo": "Identificar a que termo uma expressão retoma e como conectores alteram relações de sentido."}, {"n": 5, "titulo": "Coordenação e subordinação", "conteudo": ["Relações de coordenação", "Relações de subordinação", "Termos da oração", "Orações"], "video": "Busca dirigida — Coordenação e subordinação Cebraspe", "professor": "Selecione aula com análise sintática aplicada", "url": "https://www.youtube.com/results?search_query=coordenacao+subordinacao+CEBRASPE+portugues", "objetivo": "Reconhecer relações sintáticas e semânticas entre orações."}, {"n": 6, "titulo": "Pontuação", "conteudo": ["Vírgula", "Pontuação no período composto", "Alteração de sentido", "Correção gramatical"], "video": "Busca dirigida — Pontuação Cebraspe", "professor": "Selecione aula com itens certo/errado", "url": "https://www.youtube.com/results?search_query=pontuacao+virgula+CEBRASPE+questoes", "objetivo": "Julgar se a retirada, inserção ou deslocamento da pontuação mantém correção e sentido."}, {"n": 7, "titulo": "Concordância, regência e crase", "conteudo": ["Concordância verbal", "Concordância nominal", "Regência verbal", "Regência nominal", "Crase"], "video": "Busca dirigida — Concordância, regência e crase Cebraspe", "professor": "Selecione revisão integrada", "url": "https://www.youtube.com/results?search_query=concordancia+regencia+crase+CEBRASPE+concursos", "objetivo": "Resolver alterações estruturais propostas pela banca sem depender de leitura intuitiva."}, {"n": 8, "titulo": "Colocação pronominal e significação", "conteudo": ["Próclise", "Ênclise", "Mesóclise", "Significação de palavras", "Substituições lexicais"], "video": "Busca dirigida — Colocação pronominal e semântica Cebraspe", "professor": "Selecione aula aplicada à banca", "url": "https://www.youtube.com/results?search_query=colocacao+pronominal+semantica+CEBRASPE", "objetivo": "Avaliar correção e manutenção de sentido após substituições."}, {"n": 9, "titulo": "Reescrita e redação oficial", "conteudo": ["Reescrita", "Reorganização de orações", "Níveis de formalidade", "Correspondência oficial", "Manual de Redação da Presidência da República"], "video": "Busca dirigida — Reescrita + Redação Oficial Cebraspe", "professor": "Selecione aulas de reescrita e MRPR", "url": "https://www.youtube.com/results?search_query=reescrita+redacao+oficial+manual+presidencia+CEBRASPE", "objetivo": "Verificar equivalência semântica, correção gramatical e adequação da linguagem oficial."}]}, {"id": "historia", "nome": "História do Maranhão", "icone": "HM", "prioridade": "ALTA", "orientacao": "Estude cronologicamente e construa relações de causa, atores, objetivos, conflito e consequência.", "aulas": [{"n": 10, "titulo": "França Equinocial e fundação de São Luís", "conteudo": ["Daniel de La Touche", "França Equinocial", "Fundação de São Luís", "Contexto colonial"], "video": "Busca dirigida — França Equinocial e fundação de São Luís", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Franca+Equinocial+Daniel+La+Touche+fundacao+Sao+Luis+concurso", "objetivo": "Relacionar o projeto francês, seus atores e a formação de São Luís."}, {"n": 11, "titulo": "Guaxenduba, capitães-mores e invasão holandesa", "conteudo": ["Batalha de Guaxenduba", "Capitães-mores", "Invasão holandesa", "Expulsão dos holandeses"], "video": "Busca dirigida — Guaxenduba e invasão holandesa no Maranhão", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Batalha+Guaxenduba+invasao+holandesa+Maranhao+concurso", "objetivo": "Ordenar os conflitos coloniais e identificar seus efeitos políticos."}, {"n": 12, "titulo": "Estado do Maranhão e Grão-Pará + Bequimão", "conteudo": ["Estado do Maranhão e Grão-Pará", "Companhia de Comércio", "Revolta de Bequimão", "Causas e objetivos"], "video": "Busca dirigida — Revolta de Bequimão", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Revolta+de+Bequimao+Companhia+Comercio+Maranhao+concurso", "objetivo": "Explicar por que ocorreu a revolta e quais interesses estavam em conflito."}, {"n": 13, "titulo": "Independência e Batalha do Jenipapo", "conteudo": ["Adesão do Maranhão à Independência", "Causas da resistência à adesão", "Batalha do Jenipapo"], "video": "Busca dirigida — Maranhão, Independência e Jenipapo", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Maranhao+Independencia+Batalha+Jenipapo+concurso", "objetivo": "Entender a especificidade da adesão maranhense à Independência."}, {"n": 14, "titulo": "Balaiada", "conteudo": ["Contexto", "Caracterização", "Causas", "Atores", "Desfecho"], "video": "Busca dirigida — Balaiada para concursos", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=Balaiada+Maranhao+concurso+aula", "objetivo": "Diferenciar causas sociais, políticas e econômicas e reconhecer os principais grupos envolvidos."}, {"n": 15, "titulo": "República, 1930 e Maranhão contemporâneo", "conteudo": ["Adesão à República", "Revolução de 1930", "Fatos políticos, econômicos e sociais da segunda metade do século XX"], "video": "Busca dirigida — Maranhão República e século XX", "professor": "História do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=historia+Maranhao+Republica+Revolucao+1930+seculo+XX+concurso", "objetivo": "Construir uma linha do tempo da transição republicana ao Maranhão contemporâneo."}]}, {"id": "geografia", "nome": "Geografia do Maranhão", "icone": "GM", "prioridade": "MÉDIA/ALTA", "orientacao": "Separe geografia física, humana e econômica. Use mapas para hidrografia, relevo, limites e infraestrutura.", "aulas": [{"n": 16, "titulo": "Localização, limites e relevo", "conteudo": ["Localização", "Superfície", "Limites", "Fronteiras", "Pontos extremos", "Planaltos", "Planícies", "Baixadas", "Golfão Maranhense"], "video": "Geografia do Maranhão — Golfão Maranhense, Hidrografia e Relevo", "professor": "Aula específica de Geografia do Maranhão", "url": "https://www.youtube.com/watch?v=ZWGGQ1f3TKo", "objetivo": "Ler o território maranhense espacialmente e reconhecer suas principais unidades de relevo."}, {"n": 17, "titulo": "Hidrografia", "conteudo": ["Rios maranhenses", "Bacia do Parnaíba", "Gurupi", "Tocantins-Araguaia", "Bacias genuinamente maranhenses"], "video": "Geografia do Maranhão — Hidrografia", "professor": "Aula específica de Geografia do Maranhão", "url": "https://www.youtube.com/watch?v=M_flsZa8168", "objetivo": "Associar rios e bacias à sua localização e importância territorial."}, {"n": 18, "titulo": "Clima, vegetação e áreas protegidas", "conteudo": ["Clima", "Pluviosidade", "Temperatura", "Floresta", "Cerrado", "Cocais", "APAs", "Parques nacionais"], "video": "Busca dirigida — Clima e vegetação do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=geografia+Maranhao+clima+vegetacao+cocais+cerrado+APA+parques", "objetivo": "Relacionar clima, cobertura vegetal e distribuição espacial dos ambientes maranhenses."}, {"n": 19, "titulo": "População e povoamento", "conteudo": ["População", "Densidade demográfica", "Povoamento", "Movimentos populacionais"], "video": "Busca dirigida — População do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=geografia+Maranhao+populacao+densidade+povoamento+concurso", "objetivo": "Interpretar distribuição e dinâmica populacional no estado."}, {"n": 20, "titulo": "Economia maranhense", "conteudo": ["Agricultura", "Pecuária", "Extrativismo vegetal", "Extrativismo animal", "Extrativismo mineral", "Parque industrial", "Comércio"], "video": "Busca dirigida — Economia do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=economia+Maranhao+agricultura+pecuaria+extrativismo+industria+concurso", "objetivo": "Reconhecer as principais atividades econômicas e sua distribuição territorial."}, {"n": 21, "titulo": "Transportes, portos e cultura", "conteudo": ["Telecomunicações", "Transportes", "Malha viária", "Portos", "Aeroportos", "Cultura maranhense"], "video": "Busca dirigida — Infraestrutura e transportes do Maranhão", "professor": "Geografia do Maranhão para concursos", "url": "https://www.youtube.com/results?search_query=geografia+Maranhao+portos+transportes+malha+viaria+aeroportos+concurso", "objetivo": "Relacionar infraestrutura logística à organização econômica e territorial do Maranhão."}]}, {"id": "ingles", "nome": "Língua Inglesa", "icone": "EN", "prioridade": "OBJETIVA", "orientacao": "Não transforme a preparação em curso de inglês geral. O foco é leitura, inferência e gramática que altera a compreensão.", "aulas": [{"n": 22, "titulo": "Estratégias de leitura", "conteudo": ["Skimming", "Scanning", "Cognatos", "Palavras-chave", "Ideia principal", "Localização de informação"], "video": "Como usar Skimming e Scanning — Interpretação de textos em Inglês", "professor": "Curso Enem Gratuito", "url": "https://www.youtube.com/watch?v=YvmH7tTcDY4", "objetivo": "Ler estrategicamente sem tentar traduzir cada palavra."}, {"n": 23, "titulo": "Questões Cebraspe de Inglês", "conteudo": ["Interpretação", "Vocabulário contextual", "Gramática aplicada", "Julgamento de assertivas"], "video": "Questões Cebraspe: Inglês para Concursos", "professor": "Renato Baggio — Aprova Concursos", "url": "https://www.youtube.com/watch?v=64Z8RFeCQuw", "objetivo": "Entender como a banca combina interpretação e gramática em itens."}]}, {"id": "logica", "nome": "Raciocínio Lógico", "icone": "RL", "prioridade": "ALTA", "orientacao": "É um edital compacto. Domine completamente proposições, tabela-verdade, equivalências/negações, argumentação e diagramas.", "aulas": [{"n": 24, "titulo": "Proposições e conectivos", "conteudo": ["Estruturas lógicas", "Proposições simples", "Proposições compostas", "Conectivos"], "video": "Busca dirigida — Proposições e conectivos para concursos", "professor": "Priorize sequência do Prof. Tiago Gomes ou aula equivalente", "url": "https://www.youtube.com/results?search_query=Tiago+Gomes+proposicoes+conectivos+raciocinio+logico", "objetivo": "Formalizar frases e identificar corretamente os conectivos."}, {"n": 25, "titulo": "Tabela-verdade", "conteudo": ["Valores lógicos", "Construção de tabelas", "Proposições compostas"], "video": "Busca dirigida — Tabela Verdade completa para concursos", "professor": "Priorize sequência do Prof. Tiago Gomes ou aula equivalente", "url": "https://www.youtube.com/results?search_query=Tiago+Gomes+Tabela+Verdade+aula+completa+concursos", "objetivo": "Construir e interpretar tabelas sem depender de memorização fragmentada."}, {"n": 26, "titulo": "Equivalências, negações e Leis de Morgan", "conteudo": ["Equivalências", "Negação", "Leis de Morgan", "Transformação de proposições"], "video": "Busca dirigida — Equivalências e negações", "professor": "Priorize sequência do Prof. Tiago Gomes ou aula equivalente", "url": "https://www.youtube.com/results?search_query=Tiago+Gomes+equivalencias+negacoes+Leis+Morgan", "objetivo": "Reconhecer proposições logicamente equivalentes e negar corretamente estruturas compostas."}, {"n": 27, "titulo": "Lógica de argumentação", "conteudo": ["Analogias", "Inferências", "Deduções", "Conclusões", "Validade de argumentos"], "video": "Busca dirigida — Lógica de argumentação Cebraspe", "professor": "Selecione aula com questões da banca", "url": "https://www.youtube.com/results?search_query=logica+argumentacao+inferencias+deducoes+CEBRASPE", "objetivo": "Determinar se uma conclusão decorre validamente das premissas."}, {"n": 28, "titulo": "Diagramas e proposições categóricas", "conteudo": ["Diagramas lógicos", "Proposições categóricas", "Quantificadores", "Silogismos"], "video": "Proposições Categóricas — Equivalências, Negações, Diagramas Lógicos e Argumentos", "professor": "Prof. Tiago Gomes", "url": "https://www.youtube.com/watch?v=mQbHUCx2xBA", "objetivo": "Representar relações entre conjuntos e verificar conclusões de argumentos categóricos."}]}], "fontes": [{"nome": "Cebraspe — portal institucional", "url": "https://www.cebraspe.org.br/"}, {"nome": "YouTube — aulas indicadas", "url": "https://www.youtube.com/"}]}</script>
+<script>
+const boxes=[...document.querySelectorAll('input[type=checkbox][data-id]')];
+const lessons=[...document.querySelectorAll('.lesson')];
+const subjectIds=["portugues", "historia", "geografia", "ingles", "logica"];
+
+function update(){
+ let done=0;
+ boxes.forEach(b=>{
+   const checked=b.checked;
+   b.closest('.lesson').classList.toggle('done',checked);
+   localStorage.setItem('kaelex-'+b.dataset.id,checked?'1':'0');
+   if(checked) done++;
+ });
+ const pct=Math.round(done/boxes.length*100);
+ document.getElementById('overallText').textContent=pct+'%';
+ document.getElementById('overallBar').style.width=pct+'%';
+ document.getElementById('overallCount').textContent=done+' de '+boxes.length+' aulas concluídas.';
+ subjectIds.forEach(id=>{
+   const sb=boxes.filter(b=>b.dataset.subject===id);
+   const sd=sb.filter(b=>b.checked).length;
+   const sp=sb.length?Math.round(sd/sb.length*100):0;
+   document.getElementById('pct-'+id).textContent=sp+'%';
+   document.getElementById('count-'+id).textContent=sd+'/'+sb.length;
+   document.getElementById('bar-'+id).style.width=sp+'%';
+ });
+ const next=boxes.find(b=>!b.checked);
+ const title=document.getElementById('todayTitle');
+ if(next){
+   const card=next.closest('.lesson');
+   const aula=card.querySelector('.eyebrow').textContent;
+   const name=card.querySelector('h3').textContent;
+   title.innerHTML=aula+' — '+name+'<small>Próxima etapa da sua trilha.</small>';
+ } else {
+   title.innerHTML='Trilha concluída.<small>Inicie revisão e blocos de questões Cebraspe.</small>';
+ }
+}
+boxes.forEach(b=>{
+ b.checked=localStorage.getItem('kaelex-'+b.dataset.id)==='1';
+ b.addEventListener('change',update);
+});
+update();
+
+document.getElementById('search').addEventListener('input',e=>{
+ const q=e.target.value.toLowerCase().trim();
+ lessons.forEach(el=>el.classList.toggle('hidden', q && !el.dataset.search.includes(q)));
+ document.querySelectorAll('[data-subject-section]').forEach(sec=>{
+   const visible=[...sec.querySelectorAll('.lesson')].some(x=>!x.classList.contains('hidden'));
+   sec.classList.toggle('hidden',q && !visible);
+ });
+});
+</script>
+</body>
+</html>
